@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% comment %} <link rel="stylesheet" type="text/css" href="{ % static 'myapp/css/style.css' %}"> {% endcomment %}
+    {% comment %} {% load static %} {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/style.css' %}">
+
+</head>
+<style>
+  
+    
+    
+</style>
+<body>
+    <nav id="container">
+        <ul>
+            <li> Home</li>
+            <!-- <br> -->
+            <li>Servics
+                      <ul>
+                          <li>web design</li>
+                          <li>Mobile App
+                            <ul>
+                                <li>IOS app</li>
+                                <li>Windows App</li>
+                                <li>Android App</li>
+                            </ul>
+                          </li>
+                          <li>Ads</li>
+                      </ul>
+            </li>
+            <li>blog </li>
+            <li>contact us
+
+            <ul >
+                    <li><a href="#">ph no</a></li>
+                    <li><a href="#">email</a></li>
+                    <li><a href="#">whatsapp</a></li>
+                </ul>
+            </li>
+
+
+
+
+
+        </ul>
+    </nav>
+
+    <h1>home page</h1>
+
+    <div class="c">
+        <img src="{% static "myapp/image/pexels-photo-4061719.jpeg" %}" alt="pic">
+    </div>
+    
+    
+</body>
+</html>
