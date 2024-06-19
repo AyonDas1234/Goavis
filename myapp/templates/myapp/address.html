@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 20px;
+        }
+
+        h3 {
+            text-align: center;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e90ff;
+            margin: 0 10px;
+            transition: color 0.3s;
+
+            background-color: #dff0d8;
+            padding: 5px;
+         border-radius: 4px;
+
+        }
+
+        .nav-links a:hover {
+            color: #ff4500;
+        }
+
+        /* Flexbox setup */
+        .address-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;  /* Centers the grid horizontally */
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;  /* Maximum width for the grid */
+            margin: 0 auto;  /* Center the grid on the page */
+        }
+
+        /* Adjust flex-basis for smaller screens */
+        
+
+        @media (max-width: 1000px) {
+            .address-grid > .add {
+                flex: 1 1 calc(33.33% - 20px);  /* Three columns */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .address-grid > .add {
+                flex: 1 1 calc(50% - 20px);  /* Two columns */
+            }
+        }
+
+        @media (max-width: 400px) {
+            .address-grid > .add {
+                flex: 1 1 100%;  /* One column */
+            }
+        }
+
+        .add {
+            background-color: antiquewhite;
+            padding: 10px;
+            box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            /* text-align: center; */
+              /* Center text within the div */
+        }
+
+        .add p {
+            margin: 5px 0;
+        }
+        .nav-links a.btn-primary{
+            background-color: #ff9500;
+            color: #0c21de;
+            /* font-weight: bold;  */
+         border-radius: 4px;
+        }
+        .tab{
+    display: inline-block;
+    margin-bottom: 15px;
+    
+}
+    </style>
+</head>
+<body>
+    {% include 'myapp/header.html' %}
+
+
+    
+    
+    <h1>My Address </h1>
+    <h3>Welcome, {{name}}</h3>
+
+    <!-- <div class="nav-links">
+        <a href="{% url 'Profile_Using_Django' %}">Profile</a>
+        <a href="{% url 'Address_Using_Django' %}">Customer Address</a>
+        <a href="{% url 'Logout_Using_Django' %}">Log Out</a>
+    </div> -->
+    <div class="nav-links">
+        <div class="tab"> <a href="{% url 'Profile_Using_Django' %}" 
+            class="{% if active_tab == 'profile' %}btn-primary  {% endif %}">Profile</a></div>
+      
+            <div class="tab">    <a href="{% url 'Address_Using_Django' %}" 
+            class="{% if active_tab == 'address' %}btn-primary{% endif %}">Customer Address</a></div>
+       
+            <div class="tab">    <a href="{% url 'Order_Using_Django' %}" 
+            class="{% if active_tab == 'order' %}btn-primary{% endif %}">Orders</a></div>
+        
+            <div class="tab">   <a href="{% url 'Logout_Using_Django' %}">Log Out</a></div>
+     </div>
+ 
+
+
+
+    <div class="address-grid"> 
+        {% for ad in add %}
+            <div class="add">
+                <p>Address {{ forloop.counter }}</p>
+                <p>Name: {{ ad.name }}</p>
+                <p>Locality: {{ ad.locality }}</p>
+                <p>City: {{ ad.city }}</p>
+                <p>State: {{ ad.state }}</p>
+                <p>Pin Code: {{ ad.zipcode }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+
+   
+
+
+    <br>
+    <br><br><br><br><br><br><br><br><br><br>
+    {% include 'myapp/footer.html' %}
+    
+    
+</body>
+</html>

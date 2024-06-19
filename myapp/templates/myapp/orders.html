@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 20px;
+        }
+
+        h3 {
+            text-align: center;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e90ff;
+            margin: 0 10px;
+            transition: color 0.3s;
+
+            background-color: #dff0d8;
+            padding: 5px;
+         border-radius: 4px;
+
+        }
+
+        .nav-links a:hover {
+            color: #ff4500;
+        }
+       .nav-links a.btn-primary{
+        background-color: #ff9500;
+            color: #0c21de;
+            /* font-weight: bold;  */
+         border-radius: 4px;
+        }
+        .tab{
+    display: inline-block;
+    margin-bottom: 15px;
+    
+}
+
+
+/* Flexbox setup */
+.order-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;  /* Centers the grid horizontally */
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;  /* Maximum width for the grid */
+            margin: 0 auto;  /* Center the grid on the page */
+        }
+
+        /* Adjust flex-basis for smaller screens */
+        
+
+        @media (max-width: 1000px) {
+            .order-grid > .add {
+                flex: 1 1 calc(33.33% - 20px);  /* Three columns */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .order-grid > .add {
+                flex: 1 1 calc(50% - 20px);  /* Two columns */
+            }
+        }
+
+        @media (max-width: 400px) {
+            .order-grid > .add {
+                flex: 1 1 100%;  /* One column */
+            }
+        }
+
+        .add {
+            background-color: antiquewhite;
+            padding: 10px;
+            box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            /* text-align: center; */
+              /* Center text within the div */
+        }
+
+        .add p {
+            margin: 5px 0;
+        }
+
+
+        .navbar_for_order {
+          
+            /* background-color: #dff38f; */
+            width: 100%;
+            /* box-shadow: 2px 2px 4px rgba(0,0,0,0.1); */
+            /* z-index: 1000; */
+            /* padding: 10px; */
+            text-align: center;
+
+        }
+        .navbar_for_order a {
+            margin:  10px;
+            text-decoration: none;
+            background-color: aliceblue;
+            padding: 10px;
+            
+        }
+
+        /* Apply styles to the nth child elements */
+        .navbar_for_order a:nth-child(1) {
+            color: #043004; /* Example: Red color for the first link */
+            background-color: #9bdf9b;
+        }
+        .navbar_for_order a:nth-child(2) {
+            color: #503e06; /* Example: Green color for the second link */
+            background-color: #f1d26c; 
+
+        }
+    </style>
+</head>
+<body>
+
+    {% include 'myapp/header.html' %}
+
+
+    
+    
+    <h1>My order </h1>
+    <h3>Welcome, {{name}}</h3>
+
+    <!-- <div class="nav-links">
+        <a href="{% url 'Profile_Using_Django' %}">Profile</a>
+        <a href="{% url 'Address_Using_Django' %}">Customer Address</a>
+        <a href="{% url 'Logout_Using_Django' %}">Log Out</a>
+    </div> -->
+    <div class="nav-links">
+        <div class="tab"> <a href="{% url 'Profile_Using_Django' %}" 
+            class="{% if active_tab == 'profile' %}btn-primary  {% endif %}">Profile</a></div>
+      
+            <div class="tab">    <a href="{% url 'Address_Using_Django' %}" 
+            class="{% if active_tab == 'address' %}btn-primary{% endif %}">Customer Address</a></div>
+       
+            <div class="tab">    <a href="{% url 'Order_Using_Django' %}" 
+            class="{% if active_tab == 'order' %}btn-primary{% endif %}">Orders</a></div>
+        
+            <div class="tab">   <a href="{% url 'Logout_Using_Django' %}">Log Out</a></div>
+     </div>
+ 
+     <div class="navbar_for_order">
+        <a href="#all-orders" >All Delivery Orders </a>
+        <a href="#all-schedule">All Schedule Orders</a>
+        <!-- <br> -->
+    </div>
+    <br><br><br>
+
+    <hr><hr>
+    <h1 style="color: chartreuse;" >All Orders for Delivery </h1>
+        <br>
+     <div id="all-orders" class="order-grid"> 
+        
+        {% for OA in orderA %}
+            <div class="add">
+                <p>Order Delivery {{ forloop.counter }}</p>
+                <p><span style="color: chartreuse; font-weight: 900;">Name:</span> {{ OA.name }}</p>
+                <p>Order Delivery Status: {{ OA.order_status }}</p>
+                <p>Order Delivery ID: #{{ OA.order_id}}</p>
+
+
+                <p>Weight: {{ OA.weight }}</p>
+                <p>pickupAddress: {{ OA.pickupAddress}}</p>
+                <p>pickupPincode: {{ OA.pickupPincode }}</p>
+                <p>pickupMobile: {{ OA.pickupMobile }}</p>
+                <p>deliveryAddress: {{ OA.deliveryAddress }}</p>
+                <p>deliveryPincode: {{ OA.deliveryPincode }}</p>
+                <p>deliveryMobile: {{ OA.deliveryMobile }}</p>
+                <p>sendingType: {{ OA.sendingType }}</p>
+                <p>secureParcel: {{ OA.secureParcel }}</p>
+                <p>paymentType: {{ OA.paymentType }}</p>
+                <p>delivery_price: {{ OA.delivery_price }} Rs.</p>
+                <p>Ordering Date & Time: {{ OA.date_ordered}}</p>
+
+
+
+
+            </div>
+        {% endfor %}
+    </div>
+
+    <hr>
+    <hr>
+    <h1 style="color: rgb(255, 225, 0);">All Schdule Orders </h1>
+    <br>
+    <div id="all-schedule"class="order-grid"> 
+        {% for SA in SchduleA %}
+            <div class="add">
+                <p>Order Schdule {{ forloop.counter }}</p>
+                <p><span style="color: #ff9500; font-weight: 900;">Name:</span> {{ SA.name1 }}</p>
+                <p>order Schdule Status: {{ SA.order_status1 }}</p>
+                <p>order Schdule ID: #{{ SA.order_id1}}</p>
+
+
+                <p>Weight: {{ SA.weight1 }}</p>
+                <p>pickupAddress: {{ SA.pickupAddress1}}</p>
+                <p>pickupPincode: {{ SA.pickupPincode1 }}</p>
+                <p>pickupMobile: {{ SA.pickupMobile1 }}</p>
+                <p>deliveryAddress: {{ SA.deliveryAddress1 }}</p>
+                <p>deliveryPincode: {{ SA.deliveryPincode1 }}</p>
+                <p>deliveryMobile: {{ SA.deliveryMobile1 }}</p>
+                <p>DepartDate: {{ SA.departDate }}</p>
+                <p>ArriveDate: {{ SA.arriveDate }}</p>
+                <p>SendingType: {{ SA.sendingType1 }}</p>
+                <p>SecureParcel: {{ SA.secureParcel1 }}</p>
+                <p>PaymentType: {{ SA.paymentType1}}</p>
+                <p>Delivery_price: {{ SA.delivery_price1}} Rs.</p>
+                <p>Date_Ordered: {{ SA.date_ordered1}}</p>
+                
+
+
+
+
+
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+    <br>
+<br><br><br><br><br><br><br><br><br><br>
+{% include 'myapp/footer.html' %}
+
+    
+    
+</body>
+</html>
+
+
+
+
+    

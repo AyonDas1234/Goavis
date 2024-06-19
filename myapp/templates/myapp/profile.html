@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .pf-h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 20px;
+        }
+
+        .pf-h3 {
+            text-align: center;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #032242;
+            margin: 0 10px;
+            transition: color 0.3s;
+            background-color: #dff0d8;
+            padding: 5px;
+         border-radius: 4px;
+            
+        }
+
+        .nav-links a:hover {
+            color: #ff4500;
+        }
+
+       
+
+        .message {
+            text-align: center;
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 10px;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            margin: 10px auto;
+            max-width: 400px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .profile-form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5)); /* Drop shadow with a darker shade of grey */
+}
+        
+        @media only screen and (min-width: 200px) and (max-width: 500px) {
+    /* Styles for screens between 601px and 1199px */
+    .profile-form {
+        max-width: 200px; /* Adjusted form width */
+        padding: 20px; /* Moderate padding */
+    }
+
+    .profile-form input {
+        padding: 10px; /* Adjusted padding */
+    }
+}
+
+        
+
+        .nav-links a.btn-primary{
+            background-color: #ff9500;
+            color: #0c21de;
+            /* font-weight: bold;  */
+         border-radius: 4px;
+
+    
+
+        }
+
+        
+.tab{
+    display: inline-block;
+    margin-bottom: 15px;
+    
+}
+.profile-form label {
+            /* display: block; */
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+            
+        }
+        .profile-form input[type="text"], 
+        .profile-form input[type="email"], 
+        .profile-form input[type="password"], 
+        .profile-form input[type="number"], 
+        .profile-form select, 
+        .profile-form textarea {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .pf-s[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+        }
+
+        .pf-s[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        
+
+        .profile-form .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .profile-form label {
+            flex: 0.8;
+            margin-right: 5px; /* Reduced margin-right */
+            font-weight: bold;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    
+    {% include 'myapp/header.html' %}
+
+    
+    
+    <h1 class="pf-h1" >My Profile </h1>
+    <h3 class="pf-h3">Welcome, {{name}}</h3>
+
+   
+
+    <div class="nav-links">
+       <div class="tab"> <a href="{% url 'Profile_Using_Django' %}" 
+           class="{% if active_tab == 'profile' %}btn-primary  {% endif %}">Profile</a></div>
+     
+           <div class="tab">    <a href="{% url 'Address_Using_Django' %}" 
+           class="{% if active_tab == 'address' %}btn-primary{% endif %}">Customer Address</a></div>
+      
+           <div class="tab">    <a href="{% url 'Order_Using_Django' %}" 
+           class="{% if active_tab == 'order' %}btn-primary{% endif %}">Orders</a></div>
+       
+           <div class="tab">   <a href="{% url 'Logout_Using_Django' %}">Log Out</a></div>
+    </div>
+
+
+    {% if messages %}
+    <div class="message">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+    <div class="profile-form">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="error">
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% for fm in form %}
+        <div class="form-group">
+            <label>{{ fm.label_tag }}</label>
+            {{ fm }}
+        </div>
+            <span class="error">{{ fm.errors|striptags }}</span>
+            <br>
+            <br>
+        {% endfor %}
+
+        <input class="pf-s" type="submit" value="Submit">
+    </form>
+
+</div>
+   
+
+
+    <br>
+<br><br><br><br><br><br><br><br><br><br>
+{% include 'myapp/footer.html' %}
+    
+</body>
+</html>

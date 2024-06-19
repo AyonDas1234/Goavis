@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Delivery</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        input[type=text], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 8px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+          box-sizing: border-box;
+        }
+        button {
+          background-color: #c3b8e0;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 50%;
+          opacity: 0.9;
+        }
+
+        button:hover {
+          opacity: 1;
+        }
+        .cancelbtn{
+            padding: 14px 20px;
+            background-color: #d619ef;
+            float: left;
+            width:40%;
+            margin-right: 5%;
+        }
+        .signupbtn{
+            float: left;
+            width:40%;
+            margin-left: 5%;
+        }
+        .container{
+            padding: 16px;
+        }
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+          padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+          background-color: #fefefe;
+          margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+          border: 1px solid #888;
+          width: 30%; /* Could be more or less, depending on screen size */
+        }
+        hr{
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+        .close{
+            position: absolute;
+            right: 35px;
+            top:15px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #f1f1f1;
+        }
+        .close:hover,.close:focus{
+            color: #f44336;
+            cursor: pointer;
+        }
+        .clearfix::after{
+            content: " ";
+            clear: both;
+            display: table;
+        }
+        @media screen and (max-width: 300px) {
+
+          .cancelbtn ,.signupbtn{
+             width: 20%;
+          }
+        }
+        body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    /* padding: 20px; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="tel"] ,
+input[type="datetime-local"]{
+    width: calc(100% - 24px);
+
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    margin-bottom: 15px;
+}
+
+button[type="submit"] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+.cancelbtn {
+    background-color: #f44336;
+}
+
+.cancelbtn:hover {
+    background-color: #d32f2f;
+}
+        /* Styles for tablets and laptops */
+@media screen and (min-width: 1025px) {
+    .container {
+        width: 90%;
+    }
+    .modal-content {
+        width: 80%;
+    }
+}
+
+/* Styles for laptops and desktops */
+@media screen and (min-width: 721px) and (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+    .modal-content {
+        width: 90%;
+    }
+}
+
+/* Styles for smartphones */
+@media screen and (max-width: 360px) {
+    .container {
+        width: 100%;
+    }
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.delivery-available {
+    color: #04AA6D;
+    font-size: x-large;
+    text-align: center;
+    background-color: #d7f0e5; /* Light green background */
+    padding: 10px 20px; /* Add padding for better readability */
+    border-radius: 5px; /* Add rounded corners */
+    border: 2px solid #04AA6D; /* Add border for emphasis */
+}
+
+.delivery-not-available {
+    color: #d32f2f;
+    font-size: x-large;
+    text-align: center;
+    background-color: #f8d7da; /* Light red background */
+    padding: 10px 20px; /* Add padding for better readability */
+    border-radius: 5px; /* Add rounded corners */
+    border: 2px solid #d32f2f; /* Add border for emphasis */
+}
+
+.sr2-m {
+    background-color: #ffc107; /* Yellow background */
+    color: #212529; /* Dark text color */
+    padding: 10px 20px; /* Padding around the content */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ffc107; /* Yellow border */
+    font-size: 16px; /* Font size */
+    text-align: center; /* Center-align the text */
+}
+
+.sr2-m:hover {
+    background-color: #ffca28; /* Lighter yellow on hover */
+    border: 1px solid #ffca28; /* Lighter yellow border on hover */
+}
+    </style>
+</head>
+<body onload="document.getElementById('id01').style.display='block'" style="width:auto;">
+    <div id="id01" class="modal">
+        <!--<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>-->
+        <span onclick="closeModalAndRedirect()" class="close" title="Close Modal">&times;</span>
+
+        <form action="" class="modal-content" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% if messages %}
+          {{ message.tags }}
+          <div class="alert alert-primary sr2-m" role="alert">
+              {% for message in messages %}
+              {{ message }}
+              {% endfor %}
+          </div>
+          {% endif %}
+          <div class="container">
+              <h1>Schedule Delivery </h1>
+              <hr>
+              <label for="name">Your Name</label>
+              <input type="text" placeholder="Enter Your Name" name="name1">
+
+              <label for="weight"><b>Weight</b></label>
+              <input type="number" placeholder="Enter Weight" name="weight1" required>
+
+              <label for="pickupAddress"><b>Pickup Address</b></label>
+              <input type="text" placeholder="Enter Pickup Address" name="pickupAddress1" required>
+
+              <label for="pickupPincode"><b>Pickup Pincode</b></label>
+              <input type="number" id="pickupPincode" placeholder="Enter Pickup Pincode" name="pickupPincode1" required>
+
+              <label for="pickupMobile"><b>Pickup Mobile</b></label>
+              <input type="tel" placeholder="Enter Pickup Mobile" name="pickupMobile1" pattern="[0-9]{10}" required>
+
+              <label for="deliveryAddress"><b>Delivery Address</b></label>
+              <input type="text" placeholder="Enter Delivery Address" name="deliveryAddress1" required>
+
+              <label for="deliveryPincode"><b>Delivery Pincode</b></label>
+              <input type="number" id="deliveryPincode" placeholder="Enter Delivery Pincode" name="deliveryPincode1" required>
+
+              <label for="deliveryMobile"><b>Delivery Mobile</b></label>
+              <input type="tel" placeholder="Enter Delivery Mobile" name="deliveryMobile1" pattern="[0-9]{10}" required>
+
+            <label for="departDate"><b>Departure Date and Time</b></label>
+            <input type="datetime-local" id="departDate" name="departDate" required><br><br>
+
+
+            <label for="arriveDate"><b>Arrival Date and Time</b></label>
+            <input type="datetime-local" id="arriveDate" name="arriveDate" required><br><br>
+              <label for="sendingType"><b>Sending Type</b></label>
+              <input type="text" placeholder="Enter Sending Type" name="sendingType1" required>
+
+              <label for="secureParcel"><b>Secure Parcel</b></label>
+              <input type="text" placeholder="Enter Secure Parcel" name="secureParcel1">
+
+              <!-- <label for="paymentType"><b>Payment Type</b></label>
+              <input type="text" placeholder="Enter Payment Type" name="paymentType1" required> -->
+
+              <label for="paymentType"><b>Payment Type</b></label><br>
+              <!-- <input type="radio" id="paymentType1" name="paymentType" value="online" required>
+              <label for="paymentType1">Online Payment</label><br> -->
+              <input type="radio" id="paymentType2" name="paymentType1" value="Cash on Delivery" checked>
+              <label for="paymentType2">Cash on Delivery</label><br><br>
+
+
+
+
+              <label>
+                  <input type="checkbox" checked="checked" name="remember" style="margin-bottom: 15px;">Remember Me
+              </label>
+              <div>price:-</div>
+              <div id="price-display" style="margin-top: 20px;"></div>
+              <p>
+                  By creating an account you agree to our <a href="#" style="color: blue;">Terms & Privacy</a>
+              </p>
+              <p style="margin-left: .9%;">Don't have account <a href="/register_student/">Register</a></p>
+              <div class="clearfix">
+                  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                  <button type="submit" class="signupbtn">Submit</button>
+              </div>
+          </div>
+      </form>
+
+
+    </div>
+    <script>
+        // Get the modal
+        var modal=document.getElementById('id01');
+         function closeModalAndRedirect() {
+        modal.style.display = "none";
+        window.location.href = "/servics/";
+    }
+        // When the user clicks anywhere outside of the modal, close it
+        // window.onclick = function(event) {
+        //     if (event.target == modal) {
+        //         modal.style.display = "none";
+        //     }
+        // }
+    </script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    console.log('hi'); // Print "hi" in the console when the page loads
+
+    function updateDeliveryAvailability(pickupPincode, deliveryPincode) {
+        console.log("hello")
+        var csrfToken = '{{ csrf_token }}';  // Include CSRF token
+        console.log('Sending AJAX request with:', pickupPincode, deliveryPincode, csrfToken); // Log data being sent
+
+        $.ajax({
+            url: "{% url 'check_delivery_availability' %}",
+            method: "POST",
+            data: {
+                pickupPincode1: pickupPincode,
+                deliveryPincode1: deliveryPincode,
+                csrfmiddlewaretoken: csrfToken  // Pass CSRF token in the request data
+            },
+            success: function(response) {
+                console.log('Received response:', response); // Log response
+                var messageElement = $('#price-display');
+                messageElement.removeClass('delivery-available delivery-not-available');
+                if (response.available) {
+                    messageElement.addClass('delivery-available').removeClass('delivery-not-available');
+                    messageElement.html(`Delivery is available. Price: ${response.price} Rs.`);
+                    // $('#pickup_price').val(response.price);
+                } else {
+                    messageElement.addClass('delivery-not-available').removeClass('delivery-available');
+                    messageElement.html(response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('AJAX request failed:', error); // Log error
+            }
+        });
+    }
+
+    $('#pickupPincode, #deliveryPincode').on('input', function() {
+        var pickupPincode = $('#pickupPincode').val();
+        var deliveryPincode = $('#deliveryPincode').val();
+        console.log('User entered Pickup Pincode:', pickupPincode);
+        console.log('User entered Delivery Pincode:', deliveryPincode);
+
+        // Update delivery availability message and enable/disable place order button
+        updateDeliveryAvailability(pickupPincode, deliveryPincode);
+    });
+
+    // Clear pincode fields on document ready
+    $('#pickupPincode, #deliveryPincode').val('');
+});
+
+</script>
+
+
+
+</body>
+</html>

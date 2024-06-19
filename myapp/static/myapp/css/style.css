@@ -1,6 +1,4 @@
-body{
-   background-color: rgb(101, 214, 20);
-}
+
 
 
 *{
@@ -9,7 +7,7 @@ body{
 
 }
 body{
-   background-color: aquamarine;
+   background-color: rgb(198, 173, 153);
   
 }
 #container{
@@ -21,8 +19,10 @@ body{
    list-style: none;
 }
 #container ul li{
-   background-color: rgb(129, 129, 193);
+   background-color: rgb(15, 15, 201);
+   /* background-color: transparent; */
    width: 20%;
+   border-radius: 10px;
    /* width: 100px; */
    height: 50px;
    border: 1px solid white;

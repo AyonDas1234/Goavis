@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courier | Landing, Responsive &amp; Business Templatee</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+        integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Base styles for the document */
+        /* Base styles for the document */
+        body {
+            /* font-family: 'Roboto', sans-serif;  */
+            /* Using a modern font */
+            margin: 0;
+            padding: 0;
+            /* background-color: #f5f5f5;  */
+            /* Light background color */
+        }
+
+        .mainheading {
+            text-align: center;
+            color: rgb(0, 255, 217);
+        }
+
+        .mainheading,
+        .heading {
+            /* color: #333; */
+            font-weight: bold;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            /* Inherit the color from parent */
+        }
+
+        .cub {
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
+            /* Gradient for buttons */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            /* More rounded corners */
+            cursor: pointer;
+            transition: background 0.3s;
+            /* Smooth transition on hover */
+        }
+
+        .cub:hover {
+            background: linear-gradient(45deg, #66BB6A, #388E3C);
+            /* Hover effect */
+        }
+
+        .error {
+            color: red;
+        }
+
+        .message {
+            color: green;
+        }
+
+        .form-field {
+            font-weight: bold;
+        }
+
+        .heading {
+            text-align: center;
+            padding: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+
+        .main_contact_us {
+            display: flex;
+            justify-content: space-around;
+            /* More space between elements */
+            padding: 20px;
+            /* Padding for consistent spacing */
+        }
+
+        .contact_us_info {
+            /* text-align: center; */
+            /* Center-align the content */
+            padding: 20px;
+            /* Padding around the content */
+            /* background-color: #f9f9f9;  */
+            background-color: transparent;
+            /* Light background for contrast */
+            border: 1px solid #ddd;
+            /* Light border */
+            border-radius: 10px;
+            /* Smooth corners */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            /* Light shadow */
+            transition: box-shadow 0.3s;
+            /* Smooth hover transition */
+            /* margin: 20px; */
+            /* Space around the entire section */
+        }
+
+        .contact_us_info h1 {
+            font-size: 1.8em;
+            /* Larger font size for main heading */
+            /* color: #333;  */
+            /* Darker text color */
+            margin-bottom: 15px;
+            /* Space below the heading */
+        }
+
+        .contact_us_info a {
+            text-decoration: none;
+            /* No underline on links */
+            color: inherit;
+            /* Inherit color from parent */
+            display: block;
+            /* Make links block-level */
+            margin: 10px 0;
+            /* Vertical space between links */
+            transition: color 0.3s;
+            /* Smooth transition on hover */
+        }
+
+        .contact_us_info p:hover {
+            color: #555;
+            /* Darker color on hover */
+        }
+
+
+
+        .contact_us_info h2 {
+            display: inline-block;
+            /* Ensure inline elements align correctly */
+            margin-left: 10px;
+            /* Space between icon and text */
+            font-size: 1.2em;
+            /* Medium font size */
+            /* color: #333;  */
+            /* Text color */
+        }
+
+        .contact_us_info p {
+            font-size: 1em;
+            /* Standard font size */
+            /* color: #666;  */
+            /* Slightly lighter text color */
+            margin: 10px 0;
+            /* Vertical space between paragraphs */
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+
+        .contact_us_info:hover {
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            /* Hover effect */
+        }
+
+        .contact_us_form {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            /* background-color: white; */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .contact_us_form:hover {
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .main_contact_us {
+                display: block;
+                /* Column layout on smaller screens */
+                padding: 10px;
+                /* Reduced padding for smaller screens */
+            }
+
+            .contact_us_info,
+            .contact_us_form {
+                margin-bottom: 20px;
+                /* Ensure space between sections */
+            }
+        }
+        .contact_us_form form select{
+            width: 98%;
+            /* background-color: #2E7D32; */
+        }
+        .form-label {
+            font-weight: bold;
+            /* Make labels bold */
+            color: #333;
+            /* Dark color for text */
+            margin-bottom: 10px;
+            /* Space below the label */
+            display: block;
+            /* Display label on its own line */
+        }
+
+        /* .form-input class name is assign in forms.py for ContactForm class */
+        .form-input {
+            border: 1px solid #ddd;
+            /* Light border */
+            border-radius: 5px;
+            /* Slightly rounded corners */
+            padding: 10px;
+            /* Padding inside the field */
+            width: 100%;
+            /* Ensure the field takes full width */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            /* Light shadow */
+            transition: box-shadow 0.3s;
+            /* Smooth transition on hover */
+            width: 95%;
+        }
+
+        .form-input:focus {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            /* Hover effect when focused */
+            outline: none;
+            /* Remove default focus outline */
+        }
+
+        .error {
+            color: red;
+            /* Red for error messages */
+            font-size: 0.9em;
+            /* Slightly smaller font */
+        }
+
+        .form-input::placeholder {
+            color: #aaa;
+            /* Light gray for placeholders */
+            /* font-style: italic;  */
+            /* Italicize placeholder text */
+        }
+
+        .address-icon {
+            font-size: 1.5em;
+            /* Larger icon size */
+            color: #ffc504;
+            /* Distinct color for the address icon */
+        }
+
+        .whatsapp-icon {
+            font-size: 1.5em;
+            color: #09f211;
+            
+            /* Distinct color for WhatsApp icon */
+        }
+
+        .email-icon {
+            font-size: 1.5em;
+            color: #ff2a00;
+            /* Distinct color for email icon */
+        }
+
+
+        /* Define a simple fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                /* Start with transparency */
+                transform: translateY(20px);
+                /* Start 20px below */
+            }
+
+            to {
+                opacity: 1;
+                /* End fully opaque */
+                transform: translateY(0);
+                /* No translation */
+            }
+        }
+
+        .address,
+        .whatsapp,
+        .email {
+            animation: fadeIn 1s ease-in-out;
+            /* Apply the fade-in animation */
+            animation-delay: 0.5s;
+            /* Optional: delay to stagger animations */
+        }
+
+        .reach-out {
+            padding: 20px; /* Padding inside the paragraph */
+            
+            line-height: 1.5; /* Increase spacing between lines */
+            /* border-top: 1px solid #ddd;  */
+            /* border-bottom: 1px solid #ddd; */
+            margin-top: 15px; /* Space between previous content */
+            overflow-wrap: break-word; /* Prevents text overflow */
+           /* Ensures it doesn't exceed the parent div width */
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+            
+        }
+      .pt li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'myapp/header.html' %}
+    <!-- <h2 class="mainheading">Contact Us</h2> -->
+    <h3 class="heading">
+        Are you a home baker, home chef, running a cloud kitchen, retailer, reseller and thinking to expand your business across the city, but worried how to reach customers timely and safely, then don't worry just register with GoAvis Merchant Partner.
+
+    </h3>
+
+    <div class="main_contact_us">
+
+
+
+
+        <div class="contact_us_form">
+            <h1 style="text-align: center;">Please send us a message to become a Merchant
+
+            </h1>
+            <br>
+            <form method="post">
+                {% csrf_token %} <!-- CSRF token for security -->
+                {% for fm in form %}
+                <label class="form-label">{{ fm.label }}</label> <!-- Adding a custom class to the label -->
+                {{ fm }} <!-- Fields already have custom classes -->
+                <span class="error">{{ fm.errors|striptags }}</span>
+                <br>
+                {% endfor %}
+                <br>
+                <button class="cub" type="submit">Send</button>
+            </form>
+            {% if messages %}
+            <div class="message">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+
+
+
+        <div class="contact_us_info">
+            <h1 style="text-align: center;">Grow your business with GoAvis:
+            </h1>
+            <h2 class="heading">Why Partner with GoAvis?</h2>
+            <br>
+            <ul class="pt" >
+                <li>Scheduled pickup and drop services</li>
+                <li>Pre-booking of delivery slots</li>
+                <li>Using developed packing boxes for tamper-proof delivery</li>
+                <li>Effortless management of all your deliveries</li>
+                <li>Transparent pricing</li>
+                <li>Easy payment options</li>
+                <li>Close more sales with an efficient delivery system</li>
+                <li>Save time</li>
+                <li>No order cancellation</li>
+                <li>Radius-free delivery across Kolkata city</li>
+                <li>Multiple deliveries enroute</li>
+                <li>Delivering with a personal touch</li>
+                <li>Happy customers bring in more sales</li>
+            </ul>
+
+
+
+
+
+            
+
+           
+        </div>
+
+        
+    </div>
+    
+    <p class="reach-out"><b ><br>Terms & Conditions:
+        </b><br>
+        <br>1. Our fare is Rs10 per km from pickup to drop location. Our base fare is Rs50 for any delivery up to 5 kms after those Rs10 per km till drop location.
+
+        <br>2. For materials more than 6 kg up to 15 kg will be charges Rs14 per km.
+        
+        <br>3. For cooked food delivery our fare is upto 5 persons. For delivery of more than 5 persons, we charge Rs5 per person extra with the fare.
+        
+        <br>4. For COD (Cash on Delivery) collection, refunds will be transferred in 5 working days.
+        </p>
+    <br><br><br><br><br><br><br><br><br><br>
+    {% include 'myapp/footer.html' %}
+
+</body>
+
+</html>

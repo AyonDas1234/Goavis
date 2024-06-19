@@ -132,4 +132,16 @@ STATICFILES_DIRS = [
 
 
 
+# Email configuration for SMTP (example for Gmail)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'dasayondas100@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'lufx yivb wbqw aswf'  # Your email password or app password
+
+# Admin email where messages will be sent
+ADMIN_EMAIL = 'dasayondas23@gmail.com'  # Email address to receive contact messages
+
+
 

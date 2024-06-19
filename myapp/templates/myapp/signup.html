@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUP_Suing_Django</title>
+    <style>
+       /* Styling for the Signup Form */
+       .signup-form {
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    padding: 20px; 
+    max-width: 400px; 
+    margin: 20px auto; 
+    border-radius: 8px; 
+    font-family: 'Arial', sans-serif;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center align horizontally */
+    /* background-color: rgba(255, 255, 255, 0.5);  */
+    /* Semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5)); /* Drop shadow with a darker shade of grey */
+}
+@media only screen and (min-width: 200px) and (max-width: 400px) {
+    /* Styles for screens between 601px and 1199px */
+    .signup-form {
+        max-width: 200px; /* Adjusted form width */
+        padding: 20px; /* Moderate padding */
+    }
+
+    .signup-form input {
+        padding: 10px; /* Adjusted padding */
+    }
+}
+
+.signup-form h2 {
+    text-align: center; /* Center align the heading */
+    color: #333; /* Dark gray color for the heading */
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
+    width: 100%; /* Full width for the input fields */
+    padding: 10px; /* Padding inside input fields */
+    margin: 10px 0; /* Margin between input fields */
+    border: 1px solid #ccc; /* Border for input fields */
+    border-radius: 4px; /* Rounded corners for input fields */
+}
+
+.signup-form input[type="submit"] {
+    background-color: #4CAF50; /* Green background for submit button */
+    color: white; /* White text color */
+    padding: 12px 20px; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners for the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    width: 100%; /* Full width for the submit button */
+}
+
+.signup-form input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+/* New CSS for message and login link */
+.message {
+    background-color: #f2f2f2;
+    border-left: 4px solid #4CAF50;
+    padding: 10px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.login-link {
+    color: #19e123;
+    text-decoration: none; 
+    font-weight: bold; 
+    margin-top: 20px; /* Add space above the link */
+}
+
+.login-link:hover {
+    text-decoration: underline; 
+    color: #388E3C;
+}
+
+.error-message {
+            color: red;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border-left: 3px solid red; /* Creates a noticeable visual cue */
+        }
+        /* Styling for form field errors */
+.form-field-error {
+    color: red; /* Red color to indicate error */
+    font-size: 12px; /* Smaller font size for field errors */
+    font-weight: bold; /* Bold text for emphasis */
+    margin-top: 5px; /* Margin above the error */
+    margin-bottom: 5px; /* Margin below the error */
+    padding: 5px; /* Padding around the error text */
+    /* background-color: rgba(255, 0, 0, 0.1);  */
+    /* Light red background for visibility */
+    border-radius: 4px; /* Rounded corners for aesthetics */
+}
+
+.form-field{
+    width: 90%;
+}
+    </style>
+</head>
+<body>
+    {% include 'myapp/header.html' %}
+
+    <div class="signup-form">
+<form action="" method="post" >
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+
+        <p class="error-message">{{ error }}</p> <!-- Applying error style -->
+
+        {% endfor %}
+        {% endif %}
+
+
+
+
+
+    
+
+    {% for fm in form %}
+   
+   <div class="form-field"> {{fm.label_tag}} {{fm}} </div>
+    <!-- <br> -->
+    <!-- {{fm.errors|striptags}} -->
+    <div class="form-field-error">{{ fm.errors | striptags }}</div> <!-- Apply error style -->
+    <!-- <br>
+    <br> -->
+
+    {% endfor %}
+    <!-- {{form.as_p}} -->
+    <input type="submit" value="SignUp">
+</form>
+
+{% if messages %}
+    {% for message in messages %}
+   
+    <div class="message">
+        {{ message }}
+    </div>
+    {% endfor  %}
+
+    {% endif  %}
+
+    <a class="login-link" style="color: coral;" href="{% url 'Login_Using_Django' %}">Have you already account?</a>
+    <a class="login-link" href="{% url 'Login_Using_Django' %}">Login</a>
+
+</div>
+
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+{% include 'myapp/footer.html' %}
+</body>
+</html>

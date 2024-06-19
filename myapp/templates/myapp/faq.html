@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Example</title>
+    <!-- Adding some basic styling -->
+    <style>
+      
+
+       
+
+        .faq {
+            margin-top: 20px;
+            padding: 50px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+             line-height: 1.5; 
+             
+           
+        }
+
+        .faq-question {
+            cursor: pointer;
+            color: #333;
+            background-color: #007BFF;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.25em;
+            transition: background-color 0.3s, color 0.3s;
+
+        }
+        .faq-question:hover {
+            background-color: #0056b3;
+            color: #ffffff;
+        }
+
+        .faq-answer {
+            display: none; /* Start with answers hidden */
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.1em;
+            background-color: #e9ecef;
+            padding: 15px;
+            border-left: 5px solid #007BFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+
+        }
+    </style>
+
+    <!-- Adding JavaScript to handle FAQ toggling -->
+    <script>
+        function toggleAnswer(event) {
+            const answer = event.target.nextElementSibling;
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    {% include 'myapp/header.html' %}
+
+    <h2 style="text-align: center;">Frequently Asked Questions</h2>
+
+    <div class="faq">
+        <div class="faq-question" onclick="toggleAnswer(event)">1. How can I book a delivery?</div>
+        <div class="faq-answer">You can do the booking by using the online form on our website.</div>
+<br>
+        <div class="faq-question" onclick="toggleAnswer(event)">2. How early should I book a courier?</div>
+        <div class="faq-answer">As soon as your order is confirmed you can do the booking. To be in safe place you can do the booking 30 mins in advance.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">3. Do you pack the goods?</div>
+        <div class="faq-answer">No we don’t pack the goods, but instead we have bags where we put in the packages.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">4. What do I do if I want to send several items to the recipient?</div>
+        <div class="faq-answer">On the form, add your drop point by clicking “Add location”.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">5. Do you offer Baggages for transport?</div>
+        <div class="faq-answer">Yes, we offer bags as per the requirement of the package that is to be delivered. We have bags specially for temperature-controlled cold chain, cake, bakery, other food materials, flowers, high perishable goods.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">6. How does WE help businesses with their delivery service?</div>
+        <div class="faq-answer">WE provides logistics solutions for businesses by providing bikes on demand for business parcel delivery, bulk courier services for small and medium businesses.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">7. Does WE provide logistics service for both B2B and B2C deliveries?</div>
+        <div class="faq-answer">Yes, WE provides logistic & delivery services for both B2B & B2C sectors. Just book OUR bike and deliver commercial goods or household items to business customers, wholesalers, retailers, distributors, shop owners, or personal customers.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">8. What is the minimum charge for your courier?</div>
+        <div class="faq-answer">We charge flat 10/- per km. Our base fare is at 50/- for a delivery up to 5 kms. After that, 10/- per km will be added till drop locations.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">9. Do you have surge pricing?</div>
+        <div class="faq-answer">No, we don’t have any surge pricing at any conditions. We charge a flat 10/- per km from pick up to drop locations.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">10. Do you have midnight delivery?</div>
+        <div class="faq-answer">Yes, we have midnight delivery. Our charges for midnight delivery start at 20/- per km.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">11. What kinds of items can I deliver with YOU?</div>
+        <div class="faq-answer">Anything & everything apart from restricted & illegal items, you can deliver all items up to 20kg that can be carried on a bike using US.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">12. Do you deliver Cake, Bakery items?</div>
+        <div class="faq-answer">Yes, we deliver all types of cakes & bakery items made by home bakers, bakery businesses. We have specialized cold chain bags for delivery of all types of cakes. We deliver cream cakes, fondant cakes, tier cakes, and all others.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">13. Do you deliver bulk food deliveries from home chefs, cloud kitchens, restaurants?</div>
+        <div class="faq-answer">Yes, we deliver bulk orders of our partners. Presently we can do delivery of food up to 100 persons. For this, we charge 5/- per plate above 3 plates.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">14. Are there any charges for using US for Business?</div>
+        <div class="faq-answer">There are no charges to sign up on US for Business. You will be only charged for the deliveries you make on US for business.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">15. Do you do Cash on Delivery collection for your customers?</div>
+        <div class="faq-answer">Yes, we do COD collection on delivery of the items. We transfer the COD in 1 day time.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">16. Do you refund if a cake is damaged while doing delivery?</div>
+        <div class="faq-answer">No, presently we don’t refund “IF” any cake is damaged while on delivery. We try to make sure that the cake is not damaged while doing delivery.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">17. Do you have insurance for the packages that are not delivered?</div>
+        <div class="faq-answer">No, presently we do not have any insurance policy.</div>
+<br>
+
+        <div class="faq-question" onclick="toggleAnswer(event)">18. Where is US available?</div>
+        <div class="faq-answer">Today, WE are available only in Kolkata. Presently we are doing pick-ups from only South Kolkata, but we are delivering all across Kolkata. Presently, our riders are based in only South Kolkata.</div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+
+    {% include 'myapp/footer.html' %}
+</body>
+</html>
