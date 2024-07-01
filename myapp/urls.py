@@ -16,6 +16,9 @@ urlpatterns = [
     # path('logout_using_django/', views.Logout_using_django, name='Logout_Using_Django'),
     path('address_using_django/', views.Address_using_django, name='Address_Using_Django'),
     path('order_using_django/', views.Order_using_django, name='Order_Using_Django'),
+    path('about/',views.about,name='About'),
+
+path('privacy_policy/',views.privacy_policy,name="Privacy_Policy"),
     path('term_condition/',views.term_condition,name='Term_Condition'),
 
 

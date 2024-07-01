@@ -20,11 +20,11 @@
         </a></li>
     </ul>
     <ul class="menu_list">
-      <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">About</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+      <li class="menu__item"><a class="menu__link" href="{% url 'home_page' %}">Home</a></li>
+      <li class="menu__item"><a class="menu__link" href="{% url 'About' %}">About</a></li>
+      <li class="menu__item"><a class="menu__link" href="{% url 'servics_page' %}">Services</a></li>
+      <!-- <li class="menu__item"><a class="menu__link" href="#">Team</a></li> -->
+      <li class="menu__item"><a class="menu__link" href="{% url 'Contact_US' %}">Contact</a></li>
 
     </ul>
     <p>&copy;2024 GoAvis | All Rights Reserved</p>

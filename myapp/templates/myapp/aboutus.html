@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+    <title>About Us</title>
+    {% load static %}
+     <link rel="icon" type="image/png" sizes="100x100" href="{% static 'myapp/image/Screenshot__902_-removebg-preview.png' %}">
+    <style>
+* {
+  /*font-family: Nunito, sans-serif;*/
+}
+ @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+        :root {
+          --textBlue: hsl(238, 29%, 16%);
+          --textRed: hsl(14, 88%, 65%);
+          --textVeryDarkBlue: hsl(237, 12%, 33%);
+          --textDarkBlue: hsl(240, 6%, 50%);
+          --gradientViolet: hsl(273, 75%, 66%);
+          --gradientBlue: hsl(240, 73%, 65%);
+          --dividerGray: hsl(240, 5%, 91%);
+        }
+
+        html{
+          box-sizing: border-box;
+          font-size:100%;
+        }
+
+        *,
+        *::after,
+        *::before {
+          box-sizing: border-box;
+        }
+
+        /*body {*/
+        /*  margin: 0;*/
+        /*  padding: 0;*/
+        /*  font-family: "Kumbh Sans", sans-serif;*/
+        /*  font-size: 1.2rem;*/
+        /*  font-weight: 400;*/
+        /*  background: linear-gradient(var(--gradientViolet), var(--gradientBlue));*/
+        /*}*/
+
+        main {
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .card {
+          background-color: #fff;
+          border-radius: 2.5rem;
+          min-width: 33rem;
+          max-width: 92rem;
+          margin: 0 2.5rem 6rem;
+          padding: 0 2.3rem 4.8rem;
+          background-image: url("https://raw.githubusercontent.com/MizAndhre/FAQ-accordion-card/2ff2a02d093554f14d0390a409e825669313a16e/images/bg-pattern-mobile.svg");
+          background-repeat: no-repeat;
+          background-position: top center;
+          background-size: 24rem;
+        }
+
+        .card__box {
+          display: none;
+        }
+
+        .card__img {
+          position: relative;
+        }
+
+        .card__img-mobile {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%) translateY(-60%);
+          display: block;
+          width: 100%;
+          height: auto;
+          max-width: 24rem;
+        }
+
+        .card__img-desktop {
+          display: none;
+        }
+
+        .card__text {
+          margin-top: 12.9rem;
+        }
+
+        h1{
+          margin: 0;
+          padding-bottom: 1.5rem;
+          font-size: 3.3rem;
+          font-weight: 700;
+          text-align: center;
+          color: var(--textBlue);
+        }
+
+        .accordion__item {
+          border-bottom: 0.1rem solid var(--dividerGray);
+        }
+
+        .accordion__item h2 {
+          margin: 0;
+        }
+
+        .accordion__title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 1.45rem 0.5rem;
+          border: none;
+          background: none;
+          font-family: "Kumbh Sans", sans-serif;
+          font-size: 1.4rem;
+          color: var(--textVeryDarkBlue);
+          text-align: left;
+          transition: all 300ms ease-in-out;
+        }
+
+        .accordion__title:focus,
+        .accordion__title:focus-visible {
+          z-index: 3;
+          outline: solid rgba(255, 146, 113, 0.5);
+          box-shadow: 0 0 0.4rem 0.4rem rgba(161, 72, 45, 0.25);
+          border-radius: 0.3rem;
+        }
+
+        .accordion__title:hover {
+          cursor: pointer;
+          color: var(--textRed);
+        }
+
+        .accordion__title::after {
+          content: "";
+          display: block;
+          width: 1rem;
+          height: 0.6rem;
+          background-image: url("https://raw.githubusercontent.com/MizAndhre/FAQ-accordion-card/2ff2a02d093554f14d0390a409e825669313a16e/images/icon-arrow-down.svg");
+          background-position: center center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          transition: transform 300ms ease-in-out;
+        }
+
+        .accordion__text {
+          text-align: left;
+          padding: 0.5rem 3rem 2.2rem 0.5rem;
+          line-height: 1.5;
+          color: var(--textDarkBlue);
+        }
+
+        /* JS Classes */
+        .accordion__title.open {
+          font-weight: 700;
+          color: var(--textBlue);
+        }
+
+        .accordion__title.open::after {
+          transform: rotate(180deg);
+        }
+
+        .accordion__collapse.collapse {
+          display: none;
+        }
+
+        .accordion__collapse.collapsing {
+          height: 0;
+          overflow: hidden;
+          transition: height 1s ease;
+        }
+
+        .accordion__collapse.open {
+          display: block;
+        }
+
+        /* DESKTOP STYLE */
+        @media (min-width: 56em) {
+          .card {
+            position: relative;
+            display: flex;
+            padding: 6.1rem 9.4rem 8.4rem 0;
+            margin: 0;
+            background-image: url("https://raw.githubusercontent.com/MizAndhre/FAQ-accordion-card/2ff2a02d093554f14d0390a409e825669313a16e/images/bg-pattern-desktop.svg");
+            background-size: 100%;
+            /* background-position: -73rem center; */
+            background-position: -53rem -28rem;
+          }
+
+          .card__box {
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 57%;
+            left: 0;
+            transform: translateX(-50%) translateY(-50%);
+          }
+
+          .card__img,
+          .card__text {
+            flex: 1;
+          }
+
+          .card__img {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-right: 9.2rem;
+          }
+
+          .card__img-mobile {
+            display: none;
+          }
+
+          .card__img-desktop {
+            display: block;
+            max-width: 47.2rem;
+            transform: translateX(-8.4rem);
+          }
+
+          .card__text {
+            margin-top: 0;
+          }
+
+          h1 {
+            padding-bottom: 2.1rem;
+            text-align: left;
+          }
+
+          .accordion__title {
+            font-size: 1.5rem;
+          }
+
+          .accordion__text {
+            line-height: 1.4;
+            padding: 0.5rem 3rem 2rem 0.5rem;
+          }
+        }
+
+        /* MOBILE STYLE */
+        @media (max-width: 768px) {
+          .card {
+
+            min-width: auto;
+            max-width: 100%;
+            margin: 0 1.5rem 3rem;
+            padding: 2rem;
+          }
+
+          .card__text {
+            margin-top: 3rem;
+          }
+
+          h1 {
+               margin-top: 100px;
+            font-size: 2.5rem;
+            padding-bottom: 1.2rem;
+            text-align: center;
+          }
+
+          .accordion__title {
+            font-size: 1.3rem;
+            padding: 1rem;
+          }
+
+          .accordion__text {
+            padding: 0.5rem;
+          }
+        }
+
+
+/* FOOTER */
+/*.attribution {*/
+/*  text-align: center;*/
+/*  font-size: 1.5rem;*/
+/*  padding-bottom: 2rem;*/
+/*  color: var(--dividerGray);*/
+/*}*/
+
+/*.attribution a {*/
+/*  color: #fff;*/
+/*  text-decoration: none;*/
+/*  transition: color 200ms ease-in-out;*/
+/*  font-weight: 700;*/
+/*}*/
+
+/*.attribution a:hover {*/
+/*  color: var(--textRed);*/
+/*}*/
+
+/*.icons i {*/
+/*  margin-top: 1rem;*/
+/*  font-size: 2.5rem;*/
+/*  padding-right: 1rem;*/
+/*}*/
+.text-blk {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  line-height: 20px;
+  color: white;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 40px;
+  margin-left: 0px;
+}
+
+.responsive-container-block {
+  min-height: 75px;
+  height: fit-content;
+  width: 100%;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  justify-content: flex-start;
+}
+
+.responsive-container-block.bigContainer {
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  /*background-color: rgb(51, 51, 51);*/
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  margin: 0 0 0 0;
+}
+
+.responsive-container-block.Container {
+  max-width: 1320px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  margin-right: auto;
+  margin-bottom: 80px;
+  margin-left: auto;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+}
+
+.responsive-container-block.leftSide {
+  width: auto;
+  align-items: flex-start;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  flex-direction: column;
+  position: static;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  max-width: 300px;
+}
+
+.text-blk.heading {
+  font-size: 40px;
+  line-height: 64px;
+  font-weight: 900;
+  color: #00B2EB;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 40px;
+  margin-left: 0px;
+}
+
+.text-blk.btn {
+  color: rgb(0, 178, 235);
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(160, 121, 0, 0.2) 0px 12px 35px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  padding-top: 20px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  cursor: pointer;
+}
+
+.responsive-container-block.rightSide {
+  width: 600px;
+  position: relative;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  display: flex;
+  height: 700px;
+  min-height: auto;
+}
+
+.number1img {
+  margin-top: 39%;
+  margin-right: 80%;
+  margin-bottom: 29%;
+  margin-left: 0px;
+  height: 32%;
+  width: 30%;
+  position: absolute;
+}
+
+.number2img {
+  margin-top: 19%;
+  margin-right: 42%;
+  margin-bottom: 42%;
+  margin-left: 23%;
+  width: 45%;
+  height: 39%;
+  position: absolute;
+}
+
+.number3img {
+  width: 43%;
+  height: 40%;
+  position: absolute;
+  margin-top: 62%;
+  margin-right: 64%;
+  margin-bottom: 30%;
+  margin-left: 23%;
+}
+
+/*.number4vid {*/
+/*  width: 34%;*/
+/*  height: 33%;*/
+/*  position: absolute;*/
+/*  margin-top: 62%;*/
+/*  margin-right: 27%;*/
+/*  margin-bottom: 0px;*/
+/*  margin-left: 39%;*/
+/*}*/
+
+/*.number5img {*/
+/*  position: absolute;*/
+/*  width: 13%;*/
+/*  height: 21%;*/
+/*  margin-top: 38%;*/
+/*  margin-right: 27%;*/
+/*  margin-bottom: 41%;*/
+/*  margin-left: 60%;*/
+/*}*/
+
+.number6img {
+  position: absolute;
+  margin-top: 0px;
+  margin-right: 0%;
+  margin-bottom: 67%;
+  margin-left: 72%;
+  width: 45%;
+  height: 43%;
+}
+
+.number7img {
+  position: absolute;
+  width: 40%;
+  margin-top: 50%;
+  margin-right: 0px;
+  margin-bottom: 18%;
+  margin-left: 55%;
+  height: 42%;
+}
+
+.text-blk.subHeading {
+  font-size: 20px;
+  line-height: 25px;
+}
+
+@media (max-width: 1024px) {
+  .responsive-container-block.Container {
+    flex-direction: column-reverse;
+  }
+
+  .text-blk.heading {
+    text-align: center;
+    max-width: 370px;
+  }
+
+  .text-blk.subHeading {
+    text-align: center;
+  }
+
+  .responsive-container-block.leftSide {
+    align-items: center;
+    max-width: 480px;
+  }
+
+  .responsive-container-block.rightSide {
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 100px;
+    margin-left: auto;
+  }
+
+  .responsive-container-block.rightSide {
+    margin: 0 auto 70px auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-container-block.rightSide {
+    width: 400px;
+    height: 450px;
+  }
+
+  .responsive-container-block.leftSide {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 500px) {
+  .number1img {
+    display: none;
+  }
+
+  .number2img {
+    display: none;
+
+  }
+
+  .number3img {
+    position: static;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  .number5img {
+    display: none;
+  }
+
+  .number6img {
+    display: none;
+  }
+
+  .number7img {
+    display: none;
+  }
+
+  .responsive-container-block.rightSide {
+    width: 100%;
+    height: 350px;
+    /*height: 250px;*/
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+  }
+
+  /*.number4vid {*/
+  /*  position: static;*/
+  /*  margin-top: 0px;*/
+  /*  margin-right: auto;*/
+  /*  margin-bottom: 0px;*/
+  /*  margin-left: auto;*/
+  /*  width: 100%;*/
+  /*  height: 100%;*/
+  /*}*/
+
+  .text-blk.heading {
+    font-size: 25px;
+    line-height: 40px;
+    max-width: 370px;
+    width: auto;
+  }
+
+  .text-blk.subHeading {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .responsive-container-block.leftSide {
+    width: 100%;
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&amp;display=swap');
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.wk-desk-1 {
+  width: 8.333333%;
+}
+
+.wk-desk-2 {
+  width: 16.666667%;
+}
+
+.wk-desk-3 {
+  width: 25%;
+}
+
+.wk-desk-4 {
+  width: 33.333333%;
+}
+
+.wk-desk-5 {
+  width: 41.666667%;
+}
+
+.wk-desk-6 {
+  width: 50%;
+}
+
+.wk-desk-7 {
+  width: 58.333333%;
+}
+
+.wk-desk-8 {
+  width: 66.666667%;
+}
+
+.wk-desk-9 {
+  width: 75%;
+}
+
+.wk-desk-10 {
+  width: 83.333333%;
+}
+
+.wk-desk-11 {
+  width: 91.666667%;
+}
+
+.wk-desk-12 {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .wk-ipadp-1 {
+    width: 8.333333%;
+  }
+
+  .wk-ipadp-2 {
+    width: 16.666667%;
+  }
+
+  .wk-ipadp-3 {
+    width: 25%;
+  }
+
+  .wk-ipadp-4 {
+    width: 33.333333%;
+  }
+
+  .wk-ipadp-5 {
+    width: 41.666667%;
+  }
+
+  .wk-ipadp-6 {
+    width: 50%;
+  }
+
+  .wk-ipadp-7 {
+    width: 58.333333%;
+  }
+
+  .wk-ipadp-8 {
+    width: 66.666667%;
+  }
+
+  .wk-ipadp-9 {
+    width: 75%;
+  }
+
+  .wk-ipadp-10 {
+    width: 83.333333%;
+  }
+
+  .wk-ipadp-11 {
+    width: 91.666667%;
+  }
+
+  .wk-ipadp-12 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .wk-tab-1 {
+    width: 8.333333%;
+  }
+
+  .wk-tab-2 {
+    width: 16.666667%;
+  }
+
+  .wk-tab-3 {
+    width: 25%;
+  }
+
+  .wk-tab-4 {
+    width: 33.333333%;
+  }
+
+  .wk-tab-5 {
+    width: 41.666667%;
+  }
+
+  .wk-tab-6 {
+    width: 50%;
+  }
+
+  .wk-tab-7 {
+    width: 58.333333%;
+  }
+
+  .wk-tab-8 {
+    width: 66.666667%;
+  }
+
+  .wk-tab-9 {
+    width: 75%;
+  }
+
+  .wk-tab-10 {
+    width: 83.333333%;
+  }
+
+  .wk-tab-11 {
+    width: 91.666667%;
+  }
+
+  .wk-tab-12 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .wk-mobile-1 {
+    width: 8.333333%;
+  }
+
+  .wk-mobile-2 {
+    width: 16.666667%;
+  }
+
+  .wk-mobile-3 {
+    width: 25%;
+  }
+
+  .wk-mobile-4 {
+    width: 33.333333%;
+  }
+
+  .wk-mobile-5 {
+    width: 41.666667%;
+  }
+
+  .wk-mobile-6 {
+    width: 50%;
+  }
+
+  .wk-mobile-7 {
+    width: 58.333333%;
+  }
+
+  .wk-mobile-8 {
+    width: 66.666667%;
+  }
+
+  .wk-mobile-9 {
+    width: 75%;
+  }
+
+  .wk-mobile-10 {
+    width: 83.333333%;
+  }
+
+  .wk-mobile-11 {
+    width: 91.666667%;
+  }
+
+  .wk-mobile-12 {
+    width: 100%;
+  }
+}
+    </style>
+</head>
+
+<body>
+{% include 'myapp/header.html' %}
+
+
+<div class="about">
+   <div class="responsive-container-block bigContainer">
+  <div class="responsive-container-block Container">
+    <div class="responsive-container-block leftSide">
+      <p class="text-blk heading">
+        About Us
+      </p>
+      <p class="text-blk subHeading">
+        On Demand Express Pickup & Drop services for same day delivery anywhere across the city through our urban logistics platform, delivering on a real time basis within 30 mins to 2 hrs Door-To-Door.
+      </p>
+    </div>
+    <div class="responsive-container-block rightSide">
+      <img class="number1img" src="{% static "myapp/image/vecteezy_3d-delivery-man-character-deivering-package-with-a-scooter_37762044.png" %}">
+      <img class="number2img" src="{% static "myapp/image/vecteezy_3d-render-motos-de-passeio-de-mensageiro-laranja-para_15081873.png" %}">
+      <img class="number3img" src="{% static "myapp/image/—Pngtree—cartoon delivery boy free illustration_4452205.png" %}">
+      <!--<img class="number5img" src="{% static "myapp/image/vecteezy_3d-delivery-man-character-confused-and-thinking-pose-with_39557574.png" %}">-->
+
+      <!--<iframe allowfullscreen="allowfullscreen" class="number4vid" poster="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/b242.png" src="https://www.youtube.com/embed/svg%3E?">-->
+      <!--</iframe>-->
+
+      <img class="number7img" src="{% static "myapp/image/vecteezy_3d-businessman-with-package-box_18748881.png" %}">
+      <img class="number6img" src="{% static "myapp/image/—Pngtree—cartoon courier decoration material vector_5769383.png" %}">
+    </div>
+  </div>
+</div>
+</div>
+ <main>
+        <section class="card">
+          <!-- cube img -->
+          <img src="https://raw.githubusercontent.com/MizAndhre/FAQ-accordion-card/2ff2a02d093554f14d0390a409e825669313a16e/images/illustration-box-desktop.svg" alt="Box" class="card__box" />
+          <!-- Images -->
+          <div class="card__img">
+            <!-- mobile -->
+            <img class="card__img-mobile" src="https://raw.githubusercontent.com/MizAndhre/FAQ-accordion-card/2ff2a02d093554f14d0390a409e825669313a16e/images/illustration-woman-online-mobile.svg" alt="Woman online Mobile" />
+            <!-- desktop -->
+            <img class="card__img-desktop" src="https://raw.githubusercontent.com/MizAndhre/FAQ-accordion-card/2ff2a02d093554f14d0390a409e825669313a16e/images/illustration-woman-online-desktop.svg" alt="Woman online desktop" />
+          </div>
+
+          <!-- Text -->
+          <div class="card__text">
+            <h1>Why choose US </h1>
+
+            <div class="accordion">
+              <!-- item 1 -->
+              <div class="accordion__item">
+                <button class="accordion__title">
+                  DOOR TO DOOR DELIVERY SERVICES
+                </button>
+
+                <div class="accordion__collapse collapse">
+                  <div class="accordion__text">
+                    <p> Enjoy Relax free ON-DEMAND pickup & delivery services at your Doorstep</p>
+                  </div>
+                </div>
+              </div>
+              <!-- item 2 -->
+              <div class="accordion__item">
+                <button class="accordion__title">
+                  COLD CHAIN DELIVERY SERVICES
+                </button>
+
+                <div class="accordion__collapse collapse">
+                  <div class="accordion__text">
+                    We are specialized in delivery of Cake, Ice cream, Chocolates, Beverages, Desserts, Frozen Foods, High Perishable items, Medicines & Vaccines for HomeBakers, HomeChef, Cloud Kitchen, Bakery & Restaurants.
+                  </div>
+                </div>
+              </div>
+              <!-- item 3 -->
+              <div class="accordion__item">
+                <button class="accordion__title">
+                  TAMPER PROOF PACKAGING
+                </button>
+
+                <div class="accordion__collapse collapse">
+                  <div class="accordion__text">
+                    We offer specialized packing for Temperature controlled Bags for delivery services of both for cold chain & hot chain deliveries. Tamper proof Cake, Food & Parcel deliveries. We are the only logistics services to provide with cold chain bags in these hot summers & rainy seasons.
+                  </div>
+                </div>
+              </div>
+              <!-- item 4 -->
+              <div class="accordion__item">
+                <button class="accordion__title">
+                  RADIUS FREE DELIVERY SERVICES
+                </button>
+
+                <div class="accordion__collapse collapse">
+                  <div class="accordion__text">
+                    Delivering on a real time basis within 30 mins to 2 hrs. We deliver anything within 10 mins for a 5 km distance.
+                  </div>
+                </div>
+              </div>
+              <!-- item 5 -->
+              <div class="accordion__item">
+                <button class="accordion__title">
+                  GET ANYTHING & EVERYTHING DELIVERED
+                </button>
+
+                <div class="accordion__collapse collapse">
+                  <div class="accordion__text">
+                    Be it a Needle, Forgotten Keys, Multiple documents, Cake or Food, send anything upto 24 kg picked & delivered anywhere across the city.
+                  </div>
+                </div>
+              </div>
+              <!-- item 6 -->
+              <div class="accordion__item">
+                <button class="accordion__title">
+                  RELIABLE SAME DAY DELIVERY
+                </button>
+
+                <div class="accordion__collapse collapse">
+                  <div class="accordion__text">
+                    Book 2-wheeler delivery services online & get same day deliveries.
+                  </div>
+                </div>
+              </div>
+              <!-- item 7 -->
+              <div class="accordion__item">
+                <button class="accordion__title">
+                  PRE-BOOK YOUR DELIVERIES
+                </button>
+
+                <div class="accordion__collapse collapse">
+                  <div class="accordion__text">
+                    Pre-book your delivery slots and become Tension Free for all your deliveries
+                  </div>
+                </div>
+              </div>
+               <!-- item 8 -->
+               <div class="accordion__item">
+                <button class="accordion__title">
+                  CHEAPEST & TRANSPARENT PRICING
+                </button>
+
+                <div class="accordion__collapse collapse">
+                  <div class="accordion__text">
+                    We offer cheapest & best pricing at just 10/- per km from pickup to drop location.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+<script>
+  const accordionBtns = document.querySelectorAll(".accordion__title");
+
+accordionBtns.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    let accCollapse = button.nextElementSibling;
+
+    if (!button.classList.contains("collapsing")) {
+      // open accordion item
+      if (!button.classList.contains("open")) {
+        accCollapse.style.display = "block";
+        let accHeight = accCollapse.clientHeight;
+
+        setTimeout(() => {
+          accCollapse.style.height = accHeight + "px";
+          accCollapse.style.display = "";
+        }, 1);
+
+        accCollapse.classList = "accordion__collapse collapsing";
+
+        setTimeout(() => {
+          accCollapse.classList = "accordion__collapse collapse open";
+        }, 300);
+      }
+      //close accordion item
+      else {
+        accCollapse.classList = "accordion__collapse collapsing";
+
+        setTimeout(() => {
+          accCollapse.style.height = "0px";
+        }, 1);
+
+        setTimeout(() => {
+          accCollapse.classList = "accordion__collapse collapse";
+          accCollapse.style.height = "";
+        }, 300);
+      }
+
+      button.classList.toggle("open");
+    }
+  });
+});
+</script>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+
+       {% include 'myapp/footer.html' %}
+
+
+</body>
+</html>

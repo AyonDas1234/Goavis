@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    {% load static %}
+     <link rel="icon" type="image/png" sizes="100x100" href="{% static 'myapp/image/Screenshot__902_-removebg-preview.png' %}">
+    <!--<link rel="stylesheet" href="./index.css">-->
+       <style>
+       .main_tandc{
+  padding: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+color: black;
+        }
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width:80%;
+    padding:10px;
+    color: #fff;
+    padding: 5%;
+    text-align: center;
+}
+
+main {
+    color: #fff;
+    padding: 20px;
+}
+
+section {
+    width:80%;
+    padding:10px;
+    margin-bottom: 20px;
+
+}
+h1{
+    margin-bottom:1%;
+}
+h2 {
+    color: #fff;
+
+
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    main {
+        padding: 10px;
+    }
+    section {
+        padding:30px;
+        margin-bottom: 10px;
+    }
+    footer {
+        padding: 10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+     {% include 'myapp/header.html' %}
+<header>
+        <h1>We care about your Privacy </h1>
+        <p>Your privacy is important to us at GoAvis.We respect your privacy regarding any information we may collect from you across our website.</p>
+    </header>
+    <main>
+        <section>
+            <h2>Information Collection and Use</h2>
+            <p>We may collect personal information such as your name, address, email address, and phone number for the purpose of providing logistics services and communicating with you.</p>
+        </section>
+        <section>
+            <h2>Data Protection</h2>
+            <p>We implement various security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+        </section>
+        <section>
+            <h2>Sharing of Information</h2>
+            <p>We may share your personal information with third-party service providers who assist us in providing logistics services. However, we do not sell or rent your personal information to third parties.</p>
+        </section>
+        <section>
+            <h2>Changes to This Privacy Policy</h2>
+            <p>We reserve the right to update or change our privacy policy at any time. Any changes will be posted on this page.</p>
+        </section>
+    </main>
+<br><br><br><br><br><br><br><br><br><br>
+
+    {% include 'myapp/footer.html' %}
+</body>
+</html>

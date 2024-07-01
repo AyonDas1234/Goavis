@@ -7,7 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>courier | Landing, Responsive &amp; Business Templatee</title>
-    <link rel="icon" type="image/png" sizes="90x90" href="{% static 'myapp/image/simplified-background-remover.png' %}">
+    <!-- <link rel="icon" type="image/png" sizes="90x90" href="{% static 'myapp/image/simplified-background-remover.png' %}"> -->
+      <!-- <link rel="icon" type="image/png" sizes="90x90" href="{% static 'myapp/image/Screenshot__900_-removebg-preview.png' %}"> -->
+      <link rel="icon" type="image/png" sizes="100x100" href="{% static 'myapp/image/Screenshot__902_-removebg-preview.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -24,6 +26,7 @@
     <!-- {% comment %} <link rel="stylesheet" type="text/css" href="{ % static 'myapp/css/style.css' %}"> {% endcomment %}
     {% comment %} {% load static %} {% endcomment %} -->
     <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <style>
@@ -46,7 +49,7 @@ body{
     /* background-color: rgb(50, 62, 192); */
     display: inline;
     float: left;
-    margin-top: 10px;
+    margin-top: -30px;
     margin-left: 20px;
 
 
@@ -346,7 +349,7 @@ padding: 8px;
             opacity: 0;
             transition: 1s;
             float: right;
-            /* z-index: 1; */
+             /*z-index: 2000;*/
             /* background-color: black; */
         }
         #sidebaricon:hover {
@@ -357,7 +360,8 @@ padding: 8px;
 
         }
         #openbar {
-            z-index:2000;
+                        z-index:2000;
+
             position: fixed;
             /* position: fixed; */
             margin-top: 20px;
@@ -629,14 +633,11 @@ display: flex;
 
 }
 .price_calculate_font{
-    /* background-color: #eb9d03; */
-    /* background-color: transparent; */
+    background-color: #eb9d03;
+    background-color: transparent;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5)); /* Drop shadow with a darker shade of grey */
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-
+    border: 1px solid #ccc;
+    border-radius: 4px;
 
 
 }
@@ -657,7 +658,7 @@ display: flex;
 .btn_price{
     padding: 0px 20px 0px 20px;
 
-    /* background-color: rgb(42, 112, 165); */
+    /* background-color: rgb(42, 165, 50); */
 
 
 }
@@ -677,8 +678,9 @@ display: flex;
     margin-bottom: 10px;
 
 }
+
 #cp-btn{
-    background-color: #4CAF50; 
+    background-color: #4CAF50;
     color: #fff;
     border: none;
 }
@@ -689,12 +691,13 @@ display: flex;
     border: none;
 }
 #cp-btn:hover{
-    background-color: #45a049; 
+    background-color: #45a049;
 
 }
 #gtf-btn:hover{
     background-color: brown;
 }
+
 .price_calculate input[type="number"],
         input[type="text"],
         select {
@@ -721,38 +724,38 @@ display: flex;
             .btn_price   #cp-btn, .btn_price #gtf-btn{
                 width:100%;
             }
-            
 
 
 
         }
 
-.tp{
-   
+       .tp{
 
-   
+
+
     display: flex;
     justify-content: center;
-    /* margin-top: 20px; */
+
     text-align: center;
     margin-bottom: 15px;
-    
 
-    
+
+
 }
 .tp1{
     background-color: #add4e5;
-   
+
     width: 90%;
     text-align: center;
     font-size: x-large;
 
 
-    
-   
-   
-    
+
+
+
+
 }
+
 
 
 
@@ -829,32 +832,31 @@ display: flex;
   height: 100px;
   background: url("https://i.ibb.co/wQZVxxk/wave.png");
   background-size: 1000px 100px;
- 
 }
 
 .wave#wave1 {
-  /* z-index: 1000; */
+  /*z-index: 1000;*/
   opacity: 1;
   bottom: 0;
   animation: animateWaves 4s linear infinite;
 }
 
 .wave#wave2 {
-  /* z-index: 999; */
+  /*z-index: 999;*/
   opacity: 0.5;
   bottom: 10px;
   animation: animate 4s linear infinite !important;
 }
 
 .wave#wave3 {
-  /* z-index: 1000; */
+  /*z-index: 1000;*/
   opacity: 0.2;
   bottom: 15px;
   animation: animateWaves 3s linear infinite;
 }
 
 .wave#wave4 {
-  /* z-index: 999; */
+  /*z-index: 999;*/
   opacity: 0.7;
   bottom: 20px;
   animation: animate 3s linear infinite;
@@ -975,19 +977,85 @@ display: flex;
 .product_list {
     width: 100%;
     display: flex;
+    /*padding:2%;*/
     padding-bottom: 10%;
     flex-flow: row wrap;
+
 }
 
-.product_list1, .product_list2, .product_list3, .product_list4, .product_list5, .product_list6 {
-    width: 10%;
+.product_list1 {
+    width: 11%;
     margin: 2%;
-    background-color: #acc4e7;
-    padding: 9%;
+height:150px;
+   background: url("/static/myapp/image/Apparels Lifestyle (1).jpg");
+   background-size:100% 100%;
+    padding: 5%;
     text-align: center;
     border-radius: 3%;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
     transition: all ease 0.5s;
+
+}
+.product_list2{
+     width: 11%;
+    margin: 2%;
+    height:150px;
+   background: url("/static/myapp/image/2.jpg");
+   background-size:100% 100%;
+    padding: 5%;
+    text-align: center;
+    border-radius: 3%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.5s;
+}
+.product_list3{
+     width: 11%;
+    margin: 2%;
+    height:150px;
+   background: url("/static/myapp/image/groceries.jpg");
+   background-size:100% 100%;
+    padding: 5%;
+    text-align: center;
+    border-radius: 3%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.5s;
+}
+.product_list4{
+    width: 11%;
+    margin: 2%;
+   height:150px;
+   background: url("/static/myapp/image/jewellery.jpg");
+   background-size:100% 100%;
+    padding: 5%;
+    text-align: center;
+    border-radius: 3%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.5s;
+}
+ .product_list5{
+     width: 11%;
+    margin: 2%;
+    height:150px;
+   background: url("/static/myapp/image/vegetables.jpg");
+   background-size:100% 100%;
+    padding: 5%;
+    text-align: center;
+    border-radius: 3%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.5s;
+ }
+.product_list6 {
+     width: 11%;
+    margin: 2%;
+    height:150px;
+   background: url("/static/myapp/image/Others.jpg");
+   background-size:100% 100%;
+    padding: 5%;
+    text-align: center;
+    border-radius: 3%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.5s;
+
 }
 
 .product_list1 a, .product_list2 a, .product_list3 a, .product_list4 a, .product_list5 a, .product_list6 a {
@@ -1000,52 +1068,10 @@ display: flex;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* .area {
-    width: 100%;
-    display: flex;
-    padding-bottom: 10%;
-    margin-top: 5%;
-}
-
-.column1, .column2, .column3 {
-    width: 30%;
-}
-
-.column1 {
-    margin-left: 25%;
-}
-
-.column3 {
-    margin-right: 20%;
-}
-
-.column1 ul li, .column2 ul li, .column3 ul li {
-    text-decoration: none;
-    list-style-type: none;
-    font-size: 100%;
-}
 
 
-@media only screen and (max-width: 768px) {
-    .area {
-        
-        align-items: center;
-        margin-left: 5%;
-    }
 
-    .column1, .column2, .column3 {
-        width: 90%;
-        margin: 2% auto;
-    }
 
-    .column1 {
-        margin-left: 0;
-    }
-
-    .column3 {
-        margin-right: 0;
-    }
-} */
 /* Basic styling for the area and columns */
 .area {
     display: flex;
@@ -1071,9 +1097,12 @@ display: flex;
     flex: 1;
     min-width: 150px; /* Ensure minimum width for each column */
     border: 1px solid rgb(249, 249, 249);
-    padding-left: 5%;
-    padding-bottom: 20px;
+    /*padding-left: 50px;*/
+        padding-left: 5%;
+
     padding-top: 20px;
+        padding-bottom: 20px;
+
     margin-left: 5px;
     border-radius: 3px;
     background-color: #acc4e7;
@@ -1086,7 +1115,7 @@ display: flex;
     .column2,
     .column3 {
         flex: 50%; /* Full width for smaller screens */
-    padding-left:10%;
+            padding-left:10%;
 
     }
 }
@@ -1095,18 +1124,11 @@ display: flex;
     .column2,
     .column3 {
         flex: 100%; /* Full width for smaller screens */
-    padding-left: 20%;
+            padding-left: 20%;
 
     }
 }
 
-/* Styling for text alignment and visual presentation */
-/* h1 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-} */
 
 
 .area {
@@ -1128,17 +1150,47 @@ display: flex;
 
 /* end of area pick up
  */
+/***************************************************************area pick up end**************************/
 .features {
     width: 100%;
     display: flex;
     padding-bottom: 10%;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .features1 {
     width: 30%;
     margin: 2%;
+    height:150px;
     background-color: #acc4e7;
+    background: url("/static/myapp/image/Home1.jpg");
+    background-size:100% 100%;
+    padding: 5%;
+    text-align: center;
+    border-radius: 3%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.5s;
+}
+.features2{
+    width: 30%;
+    margin: 2%;
+    height:150px;
+    background-color: #acc4e7;
+    background: url("/static/myapp/image/delivery.jpg");
+    background-size:100% 100%;
+    padding: 5%;
+    text-align: center;
+    border-radius: 3%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.5s;
+}
+.features3{
+    width: 30%;
+    margin: 2%;
+    height:150px;
+    background-color: #acc4e7;
+    background: url("/static/myapp/image/cake1.jpg");
+    background-size:100% 100%;
     padding: 5%;
     text-align: center;
     border-radius: 3%;
@@ -1146,7 +1198,7 @@ display: flex;
     transition: all ease 0.5s;
 }
 
-.features1:hover {
+.features1:hover,.features2:hover,.features3:hover {
     transform: translateY(-10px);
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.35);
 }
@@ -1157,7 +1209,7 @@ display: flex;
         flex-wrap: wrap;
     }
 
-    .features1 {
+    .features1,.features2,.features3 {
         width: 30%;
         margin: 5% auto;
     }
@@ -1168,7 +1220,7 @@ display: flex;
         flex-wrap: wrap;
     }
 
-    .features1 {
+    .features1,.features2,.features3 {
         width: 90%;
         margin: 5% auto;
     }
@@ -1183,7 +1235,14 @@ display: flex;
 
 
 }
+@media only screen and (max-width: 360px) {
+    .product_list1, .product_list2, .product_list3, .product_list4, .product_list5, .product_list6, .column1, .column2, .column3 {
+        width: 90%;
+        margin: 5% auto;
+    }
 
+
+}
 </style>
 <body>
     <!-- <nav class="toggle-nav-sidebar">
@@ -1207,7 +1266,8 @@ display: flex;
     <div class="logo">
 <!-- logo1 -->
 <!-- <a href="#">  <img src="{% static "myapp/image/logo.png" %}" alt="logo" height="45">  -->
-<a href="#">  <img src="{% static "myapp/image/goavis_courier_servics_logo-removebg-preview.png" %}" alt="logo" height="45">
+<!-- <a href="#">  <img src="{% static "myapp/image/goavis_courier_servics_logo-removebg-preview.png" %}" alt="logo" height="45"> -->
+    <a href="#">  <img src="{% static "myapp/image/Screenshot__899_-removebg-preview.png" %}" alt="logo" height="120">
 
 
     </div>
@@ -1216,18 +1276,19 @@ display: flex;
 <ul>
     <li></li>
     <li id="cs"> <a href="{% url 'Contact_US' %}" style="color: aliceblue;">Contact Us</a></li>
-    {% if not request.user.is_authenticated %}
+
+   {% if not request.user.is_authenticated %}
     <li><a href="{% url 'Signup_Using_Django' %}">Login/SignUp</a></li>
     {% else %}
     <li><a href="{% url 'Signup_Using_Django' %}">Hi,{{name}}&#11206;</a>
         <ul id="sub">
-            <li><a href="{% url 'Profile_Using_Django' %}">profile</a></li>
-                <li><a href="{% url 'Order_Using_Django' %}" >My order</a></li>
-                    <li><a href="{% url 'Logout_Using_Django' %}">Log Out</a></li>
+            <li><a href="{% url 'Profile_Using_Django' %}">profile</a>
+                <li><a href="{% url 'Order_Using_Django' %}" >My order</a>
+                    <li><a href="{% url 'Logout_Using_Django' %}">Log Out</a>
 
 
         </ul></li>
-    
+
         {% endif %}
 
 
@@ -1246,26 +1307,27 @@ display: flex;
     </li>
     <li><a href="#">Support &#11206;</a>
     <ul id="sub">
-        <li><a href="#">About Us </a> </li>
+        <li><a href="{% url 'About' %}">About Us </a> </li>
             <li><a href="{% url 'Term_Condition' %}">Terms & Conditions</a> </li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="{% url 'Privacy_Policy' %}">Privacy Policy</a></li>
                 <li><a href="{% url 'Faq_Page' %}">FAQ</a></li>
-               
 
-                    
+
+
 
 
     </ul>
     </li>
-    <li><a href="{% url 'servics_page' %}" >Our Servics &#11206;</a>
+    <li><a href={% url "servics_page" %}>Our Servics &#11206;</a>
         <ul id="sub">
-            <li><a href="{% url 'servics_page' %}">Courier Servics</a></li>
+           <li><a href="{% url "servics_page" %}">Courier Servics</a></li>
             <li><a href="{% url 'Marchent_Page' %}">Merchant Servics</a></li>
+
 
 
         </ul>
     </li>
-    <li><a href="{% url 'home_page' %}">Home</a>
+    <li><a href={% url "home_page" %}>Home</a>
         <!-- <ul id="sub">
             <li><a href="#">About Us</a>
                 <li><a href="#">About Us2</a>
@@ -1301,7 +1363,8 @@ display: flex;
     <ul >
         <li onclick="submenu2forhome()" >
             <i class="fa icon2 fa-home"  aria-hidden="true"></i>
-            <a href="{% url 'home_page' %}" >Home</a>
+                        <a href="{% url 'home_page' %}" >Home</a>
+
             <!-- <ul class="sub_menu2" id="submenu2forhome" >
                 <li><a href="#">Home1</a></li>
                 <li><a href="#">Home2</a></li>
@@ -1316,7 +1379,8 @@ display: flex;
             <ul class="sub_menu2" id="submenu2" >
                 <li><i class="fa-solid icon2 fa-truck"></i>
                     <a href="{% url 'servics_page' %}">Courier Servics</a></li>
-                <li><a href="{% url 'Marchent_Page' %}">Merchant Servics</a></li>
+                <li><i class="fas fa-handshake icon2"></i>
+                    <a href="{% url 'Marchent_Page' %}">Merchant <span style="margin-left: 50px;">Servics</span></a></li>
                 <!-- <li><a href="#">Our Servics3</a></li> -->
 
             </ul>
@@ -1326,26 +1390,30 @@ display: flex;
             <a href="#" onclick="submenu2_search()">Search &#11206;</a>
             <ul id="submenu2search">
                 <li>
-                    <input placeholder="Search on Goavis" type="text" style="width: 90%; padding: 5px; margin: 2px;">
+                    <input placeholder="Search on bhejoo" type="text" style="width: 90%; padding: 5px; margin: 2px;">
                 </li>
             </ul>
         </li>
-        <li>
+      <li>
             <i class="fa icon2 fa-info-circle" aria-hidden="true"></i>
             <a href="#" onclick="support()">Support &#11206;</a>
              <ul class="sub_menu2" id="support" >
-                <li><a href="#">About Us </a> </li>
-            <li><a href="{% url 'Term_Condition' %}">Terms & Conditions</a> </li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="{% url 'Faq_Page' %}">FAQ</a></li>
+                
+                <li><i class=" icon2 fas fa-info" aria-hidden="true"></i>
+                    <a href="{% url 'About' %}">About Us </a> </li>
+            <li><i class=" icon2 fas fa-file-contract" aria-hidden="true"></i>
+                <a href="{% url 'Term_Condition' %}">Terms & <span style="margin-left: 35px;">    Conditions</span></a> </li>
+                <li><i class=" icon2 fas fa-shield-alt" aria-hidden="true"></i>
+                    <a href="{% url 'Privacy_Policy' %}">Privacy Policy</a></li>
+                <li><i class=" icon2 fa fa-question-circle" aria-hidden="true"></i>
+                    <a href="{% url 'Faq_Page' %}">FAQ</a></li>
 
             </ul>
         </li>
         <li><i class="fa icon2 fa-address-book" aria-hidden="true"></i>
-            <a href="{% url 'Contact_US' %}">Contact Us</a>
-        </li>
-           
-            {% if not request.user.is_authenticated %}
+            <a href="{% url 'Contact_US' %}">Contact Us</a></li>
+
+        {% if not request.user.is_authenticated %}
             <li><i class="fa-solid icon2 fa-user" aria-hidden="true"></i>
             <a href="{% url 'Signup_Using_Django' %}">Login/SignUp</a>
             </li>
@@ -1354,9 +1422,12 @@ display: flex;
      <i class="fa-solid fa-user"></i>
      <a  href="#">Hi,{{name}} &#11206;</a>
      <ul class="profile_menu2" id="profile_menu2" style="display: none;">
-         <li><a href="{% url 'Profile_Using_Django' %}">profile</a></li>
-         <li><a href="{% url 'Order_Using_Django' %}" >My order</a></li>
-             <li><a href="{% url 'Logout_Using_Django' %}">Log Out</a></li>
+         <li><i class=" icon2 fas fa-address-book" aria-hidden="true"></i>
+            <a href="{% url 'Profile_Using_Django' %}">profile</a></li>
+         <li><i class=" icon2 fa-solid fa-cart-plus" aria-hidden="true"></i>
+            <a href="{% url 'Order_Using_Django' %}" >My order</a></li>
+             <li><i class=" icon2 fa fa-sign-out" aria-hidden="true"></i>
+                <a href="{% url 'Logout_Using_Django' %}">Log Out</a></li>
 
      </ul>
  </li>
@@ -1462,7 +1533,7 @@ display: flex;
 
 
     }
-    function profile_menu2()
+     function profile_menu2()
     {
     var l = document.getElementById("profile_menu2");
     if(l.style.display == "block")
@@ -1505,8 +1576,8 @@ display: flex;
 
         <div class="container3">
             <div class="div1   item3">
-                <h1 class="text" style="font-size: 50px;font-family:'Times New Roman', Times, serif; font-weight: 500px;" >Welcome to Our Premier  </h1>
-                <p class="text" style="font-size: 53px ; font-family:'Times New Roman', Times, serif; font-weight: 900px; " >Courier Services in Kolkata</p>
+                <h1 class="text" style="font-size: 50px;font-family:'Times New Roman', Times, serif; font-weight: 500px;" >A trusted provider of </h1>
+                <p class="text" style="font-size: 53px ; font-family:'Times New Roman', Times, serif; font-weight: 900px; " >courier services.</p>
                 <br><br>
                 <p class="text" style="font-size: 25px ; font-weight: 600; font-family:monospace">We deliver your products safely to <br /> your home in a reasonable time. </p><br>  <br><a class="text"  class="get-started" style="background-color: rgb(221, 63, 15);
                 padding: 10px;
@@ -1566,39 +1637,46 @@ display: flex;
 
             </div>
             <div  class="btn_price" >
-            <button id="cp-btn"  type="submit" >Calculate Price</button>
+            <button id="cp-btn" type="submit">Calculate Price</button>
            <a href="{% url 'servics_page' %}" > <button  id="gtf-btn" type="button" onclick="goToForm()">Go to form</button></a>
-           <!-- {% if output %}
-                <div class="tp">
-                    <h2 style="text-align: center;">Total Price: <span id="output">{{ output }}</span></h2>
-                </div>
-                {% endif %} -->
-                
+<!--           {% if output %}-->
+<!--<div class="tp">-->
+<!--    <h2 style="text-align: center;">Total Price: <span id="output">{{ output }}</span></h2>-->
+<!--</div>-->
+<!--{% elif error_message %}-->
+<!--<div class="tp">-->
+<!--    <h2 style="text-align: center;">{{error_message}}</h2>-->
+
+<!--</div>-->
+<!--{% else %}-->
+<!--<div class="tp">-->
+        <!-- Default blank state -->
+<!--        <h2 style="text-align: center;"></h2>-->
+<!--        </div>-->
+<!--{% endif %}-->
+
 
         </div>
-        <div class="tp"  >
+<div class="tp"  >
             <div class="tp1"id="price-result"></div>
         </div>
-        
+
+            <!-- </div> -->
             </form>
-           
-            
         <!-- <p>Urgent Delivery at No Extra Cost</p> -->
 
-        
+        </div>
 
     </div>
-    
-</div>
     <script>
        </script>
-        <script>
+       <script>
             function checkPrice(event) {
                 event.preventDefault(); // Prevent the form from submitting
-        
+
                 var pickupPincode = document.getElementById("pickupPincode").value;
                 var dropoffPincode = document.getElementById("dropoffPincode").value;
-        
+
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState == 4) {
@@ -1640,33 +1718,24 @@ display: flex;
     </div>
     <div class="pic_banner"></div>
 </div>
-<div class="timmer">
-    <div class="timmer1"><H1>2 min</H1>
-    <p><b>Average courier assignment time</b> </p></div>
-    <div class="timmer2">
-        <h1>65 min</h1>
-        <p><b>Average delivery time</b> </p>
-    </div>
-    <div class="timmer3">
-        <h1>700+</h1>
-        <p><b>Monthly deliveries</b> </p>
-    </div>
+<h1 style="text-align: center;" style="margin-top:3%">Features</h1>
+<div class="features">
+    <div class="features1"></div>
+    <!--<div class="features1"><img src="{% static "myapp/image/150 +.jpg" %}"</div>-->
+    <div class="features2"></div>
+    <div class="features3"></div>
 </div>
 <h1 style="text-align: center;">Type of iteams which we delivered</h1>
 <div class="product_list">
-    <div class="product_list1"><a href="">Apparels/ Lifestyle</a></div>
-    <div class="product_list1"><a href="">Cake Bakery & Dairy</a></div>
-    <div class="product_list1"><a href="">Groceries</a></div>
-    <div class="product_list1"><a href="">Jewellery</a></div>
-    <div class="product_list1"><a href="">Fresh Fruits & Vegetables</a></div>
-    <div class="product_list1"><a href="">Others</a></div>
+    <div class="product_list1"></div>
+    <div class="product_list2"></div>
+    <div class="product_list3"></div>
+    <div class="product_list4"></div>
+    <div class="product_list5"></div>
+    <div class="product_list6"></div>
 </div>
-<h1 style="text-align: center;">Features</h1>
-<div class="features">
-    <div class="features1"><h2>API integration</h2></div>
-    <div class="features1"><h2>Modules Platform</h2></div>
-    <div class="features1"><h2>Bulk ordering</h2></div>
-</div>
+
+
 <h1 style="text-align: center;">Area We Serve (Pick Up)</h1>
 <div class="area">
 
@@ -1745,6 +1814,8 @@ display: flex;
 </div>
 
 <br><br><br><br><br><br><br><br><br><br>
+
+
 <footer class="footer">
     <div class="waves">
       <div class="wave" id="wave1"></div>
@@ -1767,11 +1838,11 @@ display: flex;
         </a></li>
     </ul>
     <ul class="menu_list">
-      <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">About</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+      <li class="menu__item"><a class="menu__link" href="{% url 'home_page' %}">Home</a></li>
+      <li class="menu__item"><a class="menu__link" href="/about/">About</a></li>
+      <li class="menu__item"><a class="menu__link" href="/servics/">Services</a></li>
+      <li class="menu__item"><a class="menu__link" href="/team/">Team</a></li>
+      <li class="menu__item"><a class="menu__link" href="/contact_us/">Contact</a></li>
 
     </ul>
     <p>&copy;2024 GoAvis | All Rights Reserved</p>

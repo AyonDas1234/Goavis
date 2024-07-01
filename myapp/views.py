@@ -740,3 +740,9 @@ def check_delivery_availability(request):
             }
         return JsonResponse(response)
     return JsonResponse({'available': False, 'message': 'Invalid request.'})
+
+def about(request):
+    return render(request,'myapp/aboutus.html',{ 'name':request.user,})
+
+def privacy_policy(request):
+    return render(request,'myapp/privacypolicy.html',{ 'name':request.user,})

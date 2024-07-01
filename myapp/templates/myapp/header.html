@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>courier | Landing, Responsive &amp; Business Templatee</title>
-    <link rel="icon" type="image/png" sizes="90x90" href="{% static 'myapp/image/simplified-background-remover.png' %}">
+    <!-- <link rel="icon" type="image/png" sizes="90x90" href="{% static 'myapp/image/simplified-background-remover.png' %}"> -->
+    <link rel="icon" type="image/png" sizes="100x100" href="{% static 'myapp/image/Screenshot__902_-removebg-preview.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -46,7 +47,9 @@ body{
     /* background-color: rgb(50, 62, 192); */
     display: inline;
     float: left;
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    margin-top: -30px;
+
     margin-left: 20px;
 
 
@@ -662,7 +665,8 @@ padding: 8px;
     <div class="logo">
 <!-- logo1 -->
 <!-- <a href="#">  <img src="{% static "myapp/image/logo.png" %}" alt="logo" height="45">  -->
-<a href="#">  <img src="{% static "myapp/image/goavis_courier_servics_logo-removebg-preview.png" %}" alt="logo" height="45">
+<!-- <a href="#">  <img src="{% static "myapp/image/goavis_courier_servics_logo-removebg-preview.png" %}" alt="logo" height="45"> -->
+    <a href="#">  <img src="{% static "myapp/image/Screenshot__899_-removebg-preview.png" %}" alt="logo" height="120">
 
 
     </div>
@@ -701,9 +705,9 @@ padding: 8px;
     </li>
     <li><a href="#">Support &#11206;</a>
     <ul id="sub">
-        <li><a href="#">About Us </a> </li>
+        <li><a href="{% url 'About' %}">About Us </a> </li>
             <li><a href="{% url 'Term_Condition' %}">Terms & Conditions</a> </li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="{% url 'Privacy_Policy' %}">Privacy Policy</a></li>
                 <li><a href="{% url 'Faq_Page' %}">FAQ</a></li>
                
 
@@ -771,7 +775,8 @@ padding: 8px;
             <ul class="sub_menu2" id="submenu2" >
                 <li><i class="fa-solid icon2 fa-truck"></i>
                     <a href="{% url 'servics_page' %}">Courier Servics</a></li>
-                <li><a href="{% url 'Marchent_Page' %}">Merchant Servics </a></li>
+                    <li><i class="fas fa-handshake icon2"></i>
+                        <a href="{% url 'Marchent_Page' %}">Merchant <span style="margin-left: 50px;">Servics</span></a></li>
                 
 
             </ul></li>
@@ -780,7 +785,7 @@ padding: 8px;
             <a href="#" onclick="submenu2_search()">Search &#11206;</a>
             <ul id="submenu2search">
                 <li>
-                    <input placeholder="Search on Goavis" type="text" style="width: 90%; padding: 5px; margin: 2px;">
+                    <input placeholder="Search on bhejoo" type="text" style="width: 90%; padding: 5px; margin: 2px;">
                 </li>
             </ul>
         </li>
@@ -788,10 +793,14 @@ padding: 8px;
             <i class="fa icon2 fa-info-circle" aria-hidden="true"></i>
             <a href="#" onclick="support()">Support &#11206;</a>
              <ul class="sub_menu2" id="support" >
-                <li><a href="#">About Us </a> </li>
-            <li><a href="{% url 'Term_Condition' %}">Terms & Conditions</a> </li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="{% url 'Faq_Page' %}">FAQ</a></li>
+                <li><i class=" icon2 fas fa-info" aria-hidden="true"></i>
+                    <a href="{% url 'About' %}">About Us </a> </li>
+                    <li><i class=" icon2 fas fa-file-contract" aria-hidden="true"></i>
+                        <a href="{% url 'Term_Condition' %}">Terms & <span style="margin-left: 35px;">    Conditions</span></a> </li>
+                <li><i class=" icon2 fas fa-shield-alt" aria-hidden="true"></i>
+                    <a href="{% url 'Privacy_Policy' %}">Privacy Policy</a></li>
+                <li><i class=" icon2 fa fa-question-circle" aria-hidden="true"></i>
+                    <a href="{% url 'Faq_Page' %}">FAQ</a></li>
 
             </ul>
         </li>
@@ -808,9 +817,12 @@ padding: 8px;
             <i class="fa-solid fa-user"></i>
             <a  href="#">Hi,{{name}} &#11206;</a>
             <ul class="profile_menu2" id="profile_menu2" style="display: none;">
-                <li><a href="{% url 'Profile_Using_Django' %}">profile</a></li>
-                <li><a href="{% url 'Order_Using_Django' %}" >My order</a></li>
-                    <li><a href="{% url 'Logout_Using_Django' %}">Log Out</a></li>
+                <li><i class=" icon2 fas fa-address-book" aria-hidden="true"></i>
+                    <a href="{% url 'Profile_Using_Django' %}">profile</a></li>
+                <li><i class=" icon2 fa-solid fa-cart-plus" aria-hidden="true"></i>
+                    <a href="{% url 'Order_Using_Django' %}" >My order</a></li>
+                    <li><i class=" icon2 fa fa-sign-out" aria-hidden="true"></i>
+                        <a href="{% url 'Logout_Using_Django' %}">Log Out</a></li>
 
             </ul>
         </li>
